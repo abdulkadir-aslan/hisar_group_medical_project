@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- ========================
+       page title 
+    =========================== -->
+    <section class="page-title page-title-layout5">
+        <div class="bg-img"><img src="{% static './assets/images/backgrounds/6.jpg' %}" alt="background"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="pagetitle__heading">Randevu Al</h1>
+              <nav>
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Anasayfa</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Randevu</li>
+                </ol>
+              </nav>
+            </div><!-- /.col-12 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.page-title -->
+ <!-- ==========================
+        contact layout 2
+    =========================== -->
+    <section class="contact-layout2 pt-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="contact-panel d-flex flex-wrap">
+                <form method="post" action="{% url 'meeting' %}" >
+                    {% csrf_token %}
+                    <div class="row">
+                    <div class="col-sm-12">
+                      <h4 class="contact-panel__title">Randevu Al</h4>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <i class="icon-news form-group-icon"></i>
+                        {{ form.name}}
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <i class="icon-email form-group-icon"></i>
+                        {{ form.email}}
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <i class="icon-phone form-group-icon"></i>
+                        {{ form.phone}}
+                      </div>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <div class="form-group form-group-date">
+                        <i class="icon-calendar form-group-icon"></i>
+                        {{ form.date}}
+                    </div>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <div class="form-group form-group-date">
+                        <i class="icon-clock form-group-icon"></i>
+                        {{ form.time}}
+                      </div>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-12">
+                      <button type="submit" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
+                        <span>Gönder</span> <i class="icon-arrow-right"></i>
+                      </button>
+                      <div class="contact-result"></div>
+                    </div><!-- /.col-lg-12 -->
+                  </div><!-- /.row -->
+                </form>
+              </div>
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.contact layout 2 -->
+  
+  
+{% endblock %}

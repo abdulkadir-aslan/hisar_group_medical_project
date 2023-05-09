@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- ========================
+       page title 
+    =========================== -->
+    {% with  request.resolver_match.url_name as url_name  %}
+    <section class="page-title page-title-layout2 bg-overlay text-center pb-0">
+        <div class="bg-img"><img src="{% static './assets/images/page-titles/3.jpg' %}" alt="background"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 offset-xl-2">
+              <div class="pagetitle__icon">
+                <i class="icon-microscope"></i>
+              </div>
+              <h1 class="pagetitle__heading">
+                {% if url_name == 'about' %} 
+                     Hakkımızda
+                     <h2>
+                        <p class="heading__desc mb-30">Hisar Medikal, Türkiye'de 2020 yılında kurulmuş bir medikal cihaz ve tıbbi malzeme şirketidir. 
+                          Şirket, ürün yelpazesinde cerrahi aletler, hastane ekipmanları, 
+                          sterilizasyon ürünleri, ortopedik malzemeler ve daha birçok 
+                          medikal cihaz yer alır.
+                          <br>
+                          Ürünlerinde kalite ve güvenilirliğe büyük önem verir. 
+                          Ürünler, ISO ve CE gibi uluslararası kalite ve güvenlik standartlarına 
+                          uygun olarak üretilir ve dağıtılır. Şirket, müşteri memnuniyeti 
+                          için yüksek kaliteli ürünler ve hızlı teslimat sağlamayı hedefler.
+                          <br>
+                          Ayrıca, Türkiye genelindeki sağlık sektöründe faaliyet gösteren 
+                          birçok kuruluşla işbirliği yaparak ürünlerini geniş bir müşteri 
+                          kitlesine sunar. Şirket, müşteri odaklı yaklaşımı ve etkili 
+                          lojistik yönetimi sayesinde, kısa sürede büyük bir müşteri 
+                          portföyü oluşturmuştur.
+                          <br>
+                          Medikal cihazlar ve tıbbi malzemeler sektöründe Türkiye'nin 
+                          önde gelen şirketleri arasında yer almayı hedeflemektedir. 
+                          Yüksek kaliteli ürünleri ve müşteri odaklı hizmetleriyle 
+                          sektördeki başarısını sürdürmeyi planlamaktadır.</p></h2>
+                {% elif  url_name == 'mission'%}
+                    Misyonumuz
+                    <h2>
+                        <p class="heading__desc mb-30">
+                            Müşterilerine kaliteli, güvenilir ve uygun fiyatlı medikal 
+                            cihazlar ve tıbbi malzemeler sağlamak, müşteri memnuniyetini 
+                            sağlamak ve toplumun sağlığına katkıda bulunmaktır.
+                        </p>
+                    </h2>
+                {% else %}
+                    Vizyonumuz
+                    <h2>
+                        <p class="heading__desc mb-30">
+                            Sektörde lider bir konuma sahip olmak, yenilikçi ve 
+                            öncü ürünler sunmak, müşteri memnuniyetini artırmak ve 
+                            toplumun sağlığına katkıda bulunmaktır.
+                        </p>
+                    </h2>
+                {% endif %}
+            </h1>
+              
+              <br><br><br>
+            </div><!-- /.col-xl-8 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.page-title -->
+    {% endwith %}
+{% endblock content %}

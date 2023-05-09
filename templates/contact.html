@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- ========================= 
+            Google Map
+    =========================  -->
+    <section class="google-map py-0">
+        <iframe frameborder="0" height="500" width="100%"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2041.6646548477254!2d38.809051842939965!3d37.17523851845192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1683312070642!5m2!1str!2str"></iframe>
+      </section><!-- /.GoogleMap -->
+      <!-- ==========================
+          contact layout 1
+      =========================== -->
+      <section class="contact-layout1 pt-0 mt--100">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="contact-panel d-flex flex-wrap">
+                <form class="contact-panel__form"  action="{% url 'contact' %}" method="POST" >
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <h4 class="contact-panel__title">Size Nasıl Yardımcı Olabiliriz? </h4>
+                      <p class="contact-panel__desc mb-30">Herhangi bir genel veya tıbbi sorunuz için lütfen 
+                        güler yüzlü resepsiyon personelimizle iletişime geçmekten çekinmeyin.</p>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <i class="icon-user form-group-icon"></i>
+                        {{ form.name}}
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <i class="icon-email form-group-icon"></i>
+                        {{ form.email}}
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <i class="icon-phone form-group-icon"></i>
+                        {{ form.phone}}
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <i class="icon-news form-group-icon"></i>
+                        {{ form.subject}}
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-12">
+                      <div class="form-group">
+                        <i class="icon-alert form-group-icon"></i>
+                        {{ form.content}}
+                      </div>
+                      <button type="submit" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
+                        <span>Gönder</span> <i class="icon-arrow-right"></i>
+                      </button>
+                      <div class="contact-result"></div>
+                    </div><!-- /.col-lg-12 -->
+                  </div><!-- /.row -->
+                </form>
+                <div
+                  class="contact-panel__info d-flex flex-column justify-content-between bg-overlay bg-overlay-primary-gradient">
+                  <div class="bg-img"><img src="{% static './assets/images/banners/1.jpg' %}" alt="banner"></div>
+                  <div>
+                    <h4 class="contact-panel__title color-white">İletişim</h4>
+                    <p class="contact-panel__desc font-weight-bold color-white mb-30">Herhangi bir sorunuz varsa veya 
+                        yardıma ihtiyacınız varsa, ekibimizle iletişime geçmekten çekinmeyin.
+                    </p>
+                  </div>
+                  <div>
+                    <ul class="contact__list list-unstyled mb-30">
+                      <li>
+                        <i class="icon-phone"></i><a href="tel:+90545489733">Telefon: (0544) 548 9733</a>
+                      </li>
+                      <br>
+                      <li>
+                        <i class="icon-location"></i><a href="#">Osman Gazi Mahallesi 385. Sokak Doğan Apartmanı 19A , Haliliye Şanlıurfa
+                        </a>
+                      </li>
+                      <br>
+                      <li>
+                        <i class="icon-email"></i><a href="#">hisarmedikal@gmail.com</a>
+                      </li>
+                      <br>
+                      <li>
+                        <i class="icon-clock"></i><a href="#">Pazartesi - Cuma: 8:00  - 18:00</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.contact layout 1 -->
+  
+{% endblock content %}

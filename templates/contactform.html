@@ -1,0 +1,10 @@
+<h2>{{subject}}</h2>
+
+<p><b>Adı Soyadı: </b>{{name}}</p>
+<p><b>Email     :</b>{{email}}</p>
+<p><b>Telefon   :</b>{{phone}}</p>
+{% if date_time  %}
+<p><b>Taih / Saat  :</b>{{date_time}}</p>
+{% else %}
+<p><b>Açıklama  :</b>{{content}}</p>
+{% endif %}

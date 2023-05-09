@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- ========================
+       page title 
+    =========================== -->
+    <section class="page-title page-title-layout5 bg-overlay">
+        <div class="bg-img"><img src="{% static './assets/images/page-titles/8.jpg' %}" alt="background"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="pagetitle__heading">Duyurular</h1>
+              <nav>
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="{% url 'home'%}">Anasayfa</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Duyurular</li>
+                </ol>
+              </nav>
+            </div><!-- /.col-12 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.page-title -->
+    <!-- ======================
+      Blog Grid
+    ========================= -->
+    <section class="blog-grid">
+        <div class="container">
+          <div class="row">
+            <!-- Post Item #1 -->
+            {% for item in announcement %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="post-item">
+                <div class="post__img">
+                  <a href="blog-single-post.html">
+                    <img src="{{item.image.url}}" alt="member img" loading="lazy" style="object-fit:fill;
+                  width:370px;
+                  height:242px;">
+                  </a>
+                </div><!-- /.post__img -->
+                <div class="post__body">
+                  <div class="post__meta-cat">
+                    <a href="#">{{item.update_at}}</a>
+                  </div><!-- /.blog-meta-cat -->
+                  <br>
+                  <h4 class="post__title"><a href="#">{{item.title}}</a></h4>
+  
+                  <p class="post__desc">{{item.comment|slice:":150"}}...</p>
+                  <a href="{% url 'single_announcement' item.id %}" class="btn btn__secondary btn__link btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.post__body -->
+              </div><!-- /.post-item -->
+            </div><!-- /.col-lg-4 -->
+            {% endfor %}
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.blog Grid -->
+  
+{% endblock %}

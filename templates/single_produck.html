@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- ========================
+       page title 
+    =========================== -->
+    <section class="page-title pt-30 pb-30">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mt-0">
+                  <li class="breadcrumb-item"><a href="{% url 'home'%}">Anasayfa</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'produck'%}">Ürünler</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{item.title}}</li>
+                </ol>
+              </nav>
+            </div><!-- /.col-lg-12 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.page-title -->
+  
+      <!-- ========================
+         shop single
+      =========================== -->
+      <section class="shop pb-40 pt-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="row product-item-single">
+                <div class="col-sm-6">
+                  <div class="product__img">
+                    <img src="{{item.image.url}}" alt="member img" style="object-fit:fill;
+                        width:570px;
+                        height:570px;">
+                  </div><!-- /.product-img -->
+                </div>
+                <div class="col-sm-6">
+                  <h1 class="product__title">{{item.title}}</h1>
+                  <br>
+                  <div class="product__desc">
+                    <p>{{item.comment}}
+                    </p>
+                  </div><!-- /.product-desc -->
+                </div>
+              </div><!-- /.row -->
+              <br><br><br><br>
+              <br>
+              <h6 class="related__products-title text-center-xs mb-25">Diğer Ürünler</h6>
+              <div class="row">
+                {% for items in produck %}
+                <!-- Product item #1 -->
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                  <div class="product-item">
+                    <div class="product__img">
+                      <img src="{{items.image.url}}" alt="member img" style="object-fit:fill;
+                        width:270px;
+                        height:270px;">
+                    </div><!-- /.product-img -->
+                    <div class="product__info">
+                      <h4 class="product__title"><a href="{% url 'single_produck' items.id %}">{{items.title}}</a></h4>
+                    </div><!-- /.product-content -->
+                  </div><!-- /.product-item -->
+                </div><!-- /.col-lg-3 -->
+                {% endfor %}
+              </div><!-- /.row -->
+            </div><!-- /.col-12 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.shop single -->
+  
+{% endblock %}

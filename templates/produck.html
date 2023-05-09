@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- ========================
+       page title 
+    =========================== -->
+    <section class="page-title page-title-layout5 bg-overlay">
+        <div class="bg-img"><img src="{% static './assets/images/page-titles/8.jpg' %}" alt="background"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="pagetitle__heading">Ürünlerimiz</h1>
+              <nav>
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="{% url 'home'%}">Anasayfa</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Ürünler</li>
+                </ol>
+              </nav>
+            </div><!-- /.col-12 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.page-title -->
+
+     <!-- ========================
+        Team layout 1
+    ========================== -->
+    <section class="team-layout1 pb-40">
+      <div class="container">
+        <div class="row">
+          <!-- Member #1 -->
+          {% for item in produck %}
+          <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="member">
+              <div class="member__img">
+                <img src="{{item.image.url}}" alt="member img" style="object-fit:fill;
+                  width:370px;
+                  height:340px;">
+              </div><!-- /.member-img -->
+              <div class="member__info">
+                <h5 class="member__name"><a href="{% url 'single_produck' item.id %}">{{item.title}}</a></h5>
+                <p class="member__desc">{{item.comment|slice:":150"}}... </p>
+                <a href="{% url 'single_produck' item.id %}" class="btn btn__secondary btn__link btn__rounded">
+                  <span>Read More</span>
+                  <i class="icon-arrow-right"></i>
+                </a>
+              </div><!-- /.member-info -->
+            </div><!-- /.member -->
+          </div><!-- /.col-lg-4 -->
+          {% endfor %}
+        </div> <!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.Team layout 1  -->
+
+  
+{% endblock %}
