@@ -6,9 +6,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Medcity - Medical Healthcare HTML5 Template">
-  <link href="{% static './assets/images/favicon/favicon.png' %}" rel="icon">
-  <title>Hisar Medikal</title>
+  <meta name="description" content="Hisar Grup Medikal - 0544 548 9733">
+  <link href="{% static './assets/images/favicon/hisarlogo1.png' %}" rel="icon">
+  <title>Hisar Grup Medikal</title>
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap">
@@ -45,7 +45,7 @@
                       </a>
                       <p>Please feel free to contact our friendly reception staff with any general or medical enquiry.
                       </p>
-                      <a href="appointment.html" class="btn btn__secondary btn__link btn__block">
+                      <a href="{% url 'contact' %}" class="btn btn__secondary btn__link btn__block">
                         <span>Make Appointment</span> <i class="icon-arrow-right"></i>
                       </a>
                     </div><!-- /.miniPopup-emergency -->
@@ -78,9 +78,9 @@
       </div><!-- /.header-top -->
       <nav class="navbar navbar-expand-lg sticky-navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">
-            <img src="{% static './assets/images/logo/logo.png' %}" class="logo-light" alt="logo">
-            <img src="{% static './assets/images/logo/logo.png' %}" class="logo-dark" alt="logo"style="object-fit:fill;
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static './assets/images/logo/hisarlogo.png' %}" class="logo-light" alt="logo">
+            <img src="{% static './assets/images/logo/hisarlogo.png' %}" class="logo-dark" alt="logo"style="object-fit:fill;
             width:185px;
             height:50px;">
           </a>
