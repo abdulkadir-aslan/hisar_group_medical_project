@@ -1,6 +1,8 @@
 from django import forms
+from django_recaptcha.fields import ReCaptchaField
 
 class ContactForm(forms.Form):
+    captcha = ReCaptchaField()
     name = forms.CharField(max_length=200,widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Adı Soyadı',},))
     email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'E-mail','type':'email'},))
     phone =  forms.CharField(max_length=200,widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Telefon',},))
@@ -15,6 +17,7 @@ class ContactForm(forms.Form):
             }))
     
 class MeetingForm(forms.Form):
+    captcha = ReCaptchaField()
     name = forms.CharField(max_length=200,widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Adı Soyadı',},))
     email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'E-mail','type':'email'},))
     phone =  forms.CharField(max_length=200,widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Telefon',},))

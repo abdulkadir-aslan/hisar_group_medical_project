@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %} İletişim | 0(414) 313 8241 {% endblock %}
 {% block content %}
+
+  
  <!-- ========================= 
             Google Map
     =========================  -->
@@ -11,15 +14,33 @@
       <!-- ==========================
           contact layout 1
       =========================== -->
+     
       <section class="contact-layout1 pt-0 mt--100">
         <div class="container">
           <div class="row">
             <div class="col-12">
               <div class="contact-panel d-flex flex-wrap">
-                <form class="contact-panel__form"  action="{% url 'contact' %}" method="POST" >
+                <form name="myForm" class="contact-panel__form"  action="{% url 'contact' %}" method="POST" >
                   {% csrf_token %}
                   <div class="row">
                     <div class="col-sm-12">
+                      {% if messages %}
+
+                        {% for message in messages %}
+                          <div class="alert alert-{{ message.tags }}" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>{{ message.tags }}!</strong> {{ message }}
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+
+                      <script>
+                        window.setTimeout(function() {
+                          $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                              $(this).remove(); 
+                          });
+                          }, 9000);
+                      </script>
                       <h4 class="contact-panel__title">Size Nasıl Yardımcı Olabiliriz? </h4>
                       <p class="contact-panel__desc mb-30">Herhangi bir genel veya tıbbi sorunuz için lütfen 
                         güler yüzlü resepsiyon personelimizle iletişime geçmekten çekinmeyin.</p>
@@ -53,13 +74,17 @@
                         <i class="icon-alert form-group-icon"></i>
                         {{ form.content}}
                       </div>
+                      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                      <div class="g-recaptcha" data-sitekey="6Le9HkApAAAAAHsPbYtKorGK7GkzXOvN2wA-KCiS" required></div>
+                      
                       <button type="submit" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
                         <span>Gönder</span> <i class="icon-arrow-right"></i>
                       </button>
-                      <div class="contact-result"></div>
+
                     </div><!-- /.col-lg-12 -->
                   </div><!-- /.row -->
                 </form>
+                
                 <div
                   class="contact-panel__info d-flex flex-column justify-content-between bg-overlay bg-overlay-primary-gradient">
                   <div class="bg-img"><img src="{% static './assets/images/banners/1.jpg' %}" alt="banner"></div>

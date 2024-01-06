@@ -4,6 +4,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm,MeetingForm
 from .models import Produck,Announcement
+from django.contrib import messages
+
 
 def index(request):
     context = {
@@ -38,7 +40,14 @@ def contact(request):
                       \n Sağlıklı günler dileriz.
                       \n Hisar Grup Medikal
                      """,settings.EMAIL_HOST_USER,[email,],)
-            return redirect("home")
+            messages.add_message(
+                            request,messages.SUCCESS,
+                            "Talebiniz iletilmiştir. Geri dönüş için beklemede kalınız.." )
+            return redirect("contact")
+        else:
+            messages.add_message(
+                            request,messages.WARNING,
+                            "Lütfen ilgili alanı işaretleyiniz.." )
     else:
         form = ContactForm()
     return render(request,'contact.html',{'form':form})
@@ -78,7 +87,13 @@ def meeting(request):
                       \n Randevu talebiniz alınmıştır.{date_time} tarihinde görüşmek dileğiyle sağlıklı günler dileriz.
                       \n Hisar Grup Medikal
                      """,settings.EMAIL_HOST_USER,[email,],)
-            return redirect("home")
+            messages.add_message(
+                            request,messages.SUCCESS,"Talebiniz iletilmiştir. Geri dönüş için beklemede kalınız.." )
+            return redirect("meeting")
+        else:
+            messages.add_message(
+                            request,messages.WARNING,
+                            "Lütfen ilgili alanı işaretleyiniz.." )
     else:
         form = MeetingForm()
     return render(request,'meeting.html',{'form':form})

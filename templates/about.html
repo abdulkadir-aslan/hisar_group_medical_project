@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+{% with  request.resolver_match.url_name as url_name  %}
+  {% if url_name == 'about' %} 
+    Hakkımızda
+  {% elif  url_name == 'mission'%}
+    Misyonumuz
+  {% else %}
+    Vizyonumuz
+  {% endif %}
+{% endwith %}
+{% endblock title %}
+
 {% block content %}
 <!-- ========================
        page title 

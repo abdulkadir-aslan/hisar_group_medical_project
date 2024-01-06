@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'page',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -112,4 +113,7 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
+RECAPTCHA_PUBLIC_KEY = '6Le9HkApAAAAAHsPbYtKorGK7GkzXOvN2wA-KCiS'
+RECAPTCHA_PRIVATE_KEY = '6Le9HkApAAAAAFKyk006-tzY5kJlrCE2idqj24tK'
+# NOCAPTCHA = True
 from env.deploy import *
