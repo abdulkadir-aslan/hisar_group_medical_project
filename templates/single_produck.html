@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} {{item.title}} | {{item.comment}} {% endblock %}
+{% block title %} Hisar Gurup Medikal | {{item.title}} | {{item.comment|slice:":100"}} {% endblock %}
 {% block content %}
     <!-- ========================
        page title 

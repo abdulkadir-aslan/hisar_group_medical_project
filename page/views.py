@@ -33,7 +33,7 @@ def contact(request):
                 'subject':subject,
                 'content':content,
             })
-            send_mail("Yeni Gönderi","başlık",settings.EMAIL_HOST_USER,[settings.EMAIL_HOST_USER,],html_message=html)
+            send_mail("Yeni Gönderi","başlık",settings.EMAIL_HOST_USER,["info@hisargrupmedikal.com",],html_message=html)
             send_mail("Talebiniz Hk.",f"""Sayın {name.title()} 
             \nFirmamıza göstermiş olduğunuz ilgiden dolayı teşekkür ederiz.
                       \n Talebiniz alınmıştır en kısa sürede geri dönüş yapılacaktır.
@@ -81,7 +81,7 @@ def meeting(request):
                 'subject':subject,
                 'date_time':date_time,
             })
-            send_mail("Randevu","başlık",settings.EMAIL_HOST_USER,[settings.EMAIL_HOST_USER,],html_message=html,)
+            send_mail("Randevu","başlık",settings.EMAIL_HOST_USER,["info@hisargrupmedikal.com",],html_message=html,)
             send_mail("Randevu Hk.",f"""Sayın {name} 
             \nFirmamıza göstermiş olduğunuz ilgiden dolayı teşekkür ederiz.
                       \n Randevu talebiniz alınmıştır.{date_time} tarihinde görüşmek dileğiyle sağlıklı günler dileriz.

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Duyurular{% endblock %}
+{% block title %}Hisar Gurup Medikal | Duyurular{% endblock %}
 {% block content %}
 <!-- ========================
        page title 
@@ -32,7 +32,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="post-item">
                 <div class="post__img">
-                  <a href="blog-single-post.html">
+                  <a href="{% url 'single_announcement' item.id %}">
                     <img src="{{item.image.url}}" alt="member img" loading="lazy" style="object-fit:fill;
                   width:370px;
                   height:242px;">
